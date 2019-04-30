@@ -37,20 +37,35 @@
         <!-- jQuery CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        <!-- Firebase -->
-        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <!-- Firebase
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
         <script>
-            // Replace your Configuration here..
-            var config = {
-                apiKey: "AIzaSyAe4HH4BTMNcPd6rHI17EEaRNlmWmGAkuc",
-                authDomain: "realtime-on-map-example.firebaseapp.com",
-                databaseURL: "https://realtime-on-map-example.firebaseio.com",
-                projectId: "realtime-on-map-example",
-                storageBucket: "",
-                messagingSenderId: "851837622908"
-            };
-            firebase.initializeApp(config);
+              // Initialize Firebase
+              var config = {
+                apiKey: "AIzaSyAW1TC8QEwU9DNkLKyn4kmgqRiP78chobk",
+                authDomain: "quickstart-syrinx.firebaseapp.com",
+                databaseURL: "https://quickstart-syrinx.firebaseio.com",
+                projectId: "quickstart-syrinx",
+                storageBucket: "quickstart-syrinx.appspot.com",
+                messagingSenderId: "1021504998773"
+              };
+              firebase.initializeApp(config);
         </script>
+-->
+
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+        <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCoO4_HV_6yL3KRi92TG1AsZU0vX0OOL0I",
+    authDomain: "soda-transport-tracker-backend.firebaseapp.com",
+    databaseURL: "https://soda-transport-tracker-backend.firebaseio.com",
+    projectId: "soda-transport-tracker-backend",
+    storageBucket: "soda-transport-tracker-backend.appspot.com",
+    messagingSenderId: "849476536357"
+  };
+  firebase.initializeApp(config);
+</script>
 
         <script>
 
@@ -62,8 +77,8 @@
             var map;
             function initMap() { // Google Map Initialization... 
                 map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 16,
-                    center: new google.maps.LatLng(31.52011, 74.368604),
+                    zoom: 10,
+                    center: new google.maps.LatLng(41.8609868, -70.9307588),
                     mapTypeId: 'terrain'
                 });
             }
@@ -94,7 +109,8 @@
             }
 
             // get firebase database reference...
-            var cars_Ref = firebase.database().ref('/');
+            var cars_Ref = firebase.database().ref('/raw-locations/MA-EV382T');
+            // var cars_Ref = firebase.database().ref('/raw-locations/MA-Tesla');
 
             // this event will be triggered when a new object will be added in the database...
             cars_Ref.on('child_added', function (data) {
@@ -116,7 +132,7 @@
             });
 
         </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7DtKqWoAtgKFmYtUu-PceyA7bV1Y9NTU&callback=initMap">
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjoaOqPN_AEUIVp54cgBKEMwdB7XcIvk4&callback=initMap">
         </script>
 
     </body>
